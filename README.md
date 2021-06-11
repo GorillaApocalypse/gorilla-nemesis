@@ -1,2 +1,4 @@
 # gorilla-nemesis
-Gorilla Nemesis - smart contract
+Gorilla Nemesis
+
+The smart contract "GorillaNemesis", starts on line 1875
