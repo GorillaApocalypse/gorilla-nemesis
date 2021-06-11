@@ -1937,19 +1937,22 @@ contract GorillaNemesis is ERC721, Ownable {
         msg.sender.transfer(balance);
     }
 
-    /**
+
+   /**
      * Set aside some Gorilla Nemesis
      * Since we will take care of the transactions to mint the Gorilla Nemesis during the claim period, 
-     * we reserve 20 Gorillas to repay the expense.
+     * we reserve 30 Gorillas to repay the expense.
      */
-    function reserveGorillas() public onlyOwner {        
+    function reserveGorillas() public onlyOwner {
+        require(totalSupply().add(30) <= MAX_CLAIM_GORILLAS + 30, "Reserve not allowed!");        
         uint supply = totalSupply();
         uint i;
-        for (i = 0; i < 20; i++) {
+        for (i = 0; i < 30; i++) {
             _safeMint(msg.sender, supply + i);
         }
     }
-
+    
+    
     /*     
     * Set base uri for metadata update
     */
